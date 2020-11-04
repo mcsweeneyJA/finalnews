@@ -1,0 +1,23 @@
+extends layout
+
+
+block content
+  .container.center-align
+    h1 News Watch
+
+
+  .container
+    table.responsive-table.striped
+      thead
+        tr: h5.txt.center-align.teal-text.lighten-3 Recent Articles from:   #{data.payload.articles[0].author}
+      tbody
+      each provider in data.payload.articles
+        tr
+          td #{provider.author}
+          td #{provider.title} 
+    
+   
+  .container.center-align
+    h3 NLP Sentiment analysis determined these stories have a sentiment of:
+    h2  #{data.aggregate}
+
